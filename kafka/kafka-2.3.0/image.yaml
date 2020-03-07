@@ -45,9 +45,7 @@ run:
 osbs:
   extra_dir: dist-git-files
   configuration:
-    container:
-      compose:
-        pulp_repos: true
+    container_file: container.yaml
   repository:
     name: containers/amqstreams-kafka-23
     branch: amqstreams-1.4-rhel-7
