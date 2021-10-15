@@ -1,0 +1,18 @@
+schema_version: 1
+
+name: reproducer
+version: 1.0.0
+
+packages:
+  manager: microdnf
+  content_sets:
+    x86_64:
+      - amq-streams-2-for-rhel-8-rpms
+    ppc64le:
+      - amq-streams-2-for-rhel-8-ppc64le-rpms
+  install:
+    - kafka_exporter
+
+execute:
+  - script: install.sh
+

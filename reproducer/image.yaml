@@ -1,0 +1,37 @@
+schema_version: 1
+
+name: reproducer/reproducer
+description: "Reproducer"
+version: "1.0.0"
+from: registry.redhat.io/ubi8/ubi-minimal
+
+modules:
+  repositories:
+    - name: modules   
+      path: modules
+  install:
+    - name: reproducer
+      version: 1.0.0
+
+packages:
+  manager: microdnf
+  content_sets:
+    x86_64:
+      - rhel-8-for-x86_64-baseos-rpms
+        #- amq-streams-2-for-rhel-8-rpms
+    ppc64le:
+      - rhel-8-for-ppc64le-baseos-rpms
+        #- amq-streams-2-for-rhel-8-ppc64le-rpms
+  install:
+    - hostname
+      #- kafka_exporter
+
+osbs:
+  configuration:
+    container:
+      compose:
+        pulp_repos: true
+      platforms:
+        only:
+        - x86_64
+        - ppc64le
