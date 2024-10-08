@@ -6,7 +6,7 @@ platforms:
   - s390x
   - aarch64
 operator_manifests:
-  enable_digest_pinning: true
+  enable_digest_pinning: false
   enable_repo_replacements: false
   enable_registry_replacements: false
   repo_replacements:
